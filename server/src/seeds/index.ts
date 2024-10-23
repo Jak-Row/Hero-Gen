@@ -4,6 +4,7 @@ import { seedOrigins } from './origin-seeds.js';
 import { seedPowers } from './power-seeds.js';
 import { seedGadgets } from './gadget-seeds.js';
 import { seedTags } from './tag-seeds.js';
+
 import sequelize from '../config/connection.js';
 
 const seedAll = async (): Promise<void> => {
@@ -14,6 +15,7 @@ const seedAll = async (): Promise<void> => {
     await seedUsers();
     console.log('\n----- USERS SEEDED -----\n');
     
+
     await seedOrigins();
     console.log('\n----- ORIGINS SEEDED -----\n');
 
@@ -28,6 +30,7 @@ const seedAll = async (): Promise<void> => {
 
     //await seedHeroes();
     //console.log('\n----- HEROES SEEDED -----\n');
+
 
     process.exit(0);
   } catch (error) {

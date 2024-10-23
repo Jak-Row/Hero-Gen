@@ -92,3 +92,4 @@ CREATE TABLE gadgetTags{
     FOREIGN KEY (gadget_id) REFERENCES gadgets(id),
     FOREIGN KEY (tag_id) REFERENCES tags(id),
 }
+
