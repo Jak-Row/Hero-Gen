@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html><head><base href="index.html">
+<title>Hero-Gen: Create Your Superhero</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+:root {
+--hero-red: #ED1D24;
+--hero-blue: #0282F9;
+--hero-white: #FFFFFF;
+--hero-black: #202020;
+--hero-grey: #767676;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Roboto Condensed', sans-serif;
+line-height: 1.6;
+background: var(--hero-white);
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+header {
+background: var(--hero-black);
+color: var(--hero-white);
+padding: 1rem 0;
+}
+
+nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+nav ul {
+display: flex;
+list-style: none;
+}
+
+nav ul li {
+margin-left: 2rem;
+}
+
+nav a {
+color: var(--hero-white);
+text-decoration: none;
+text-transform: uppercase;
+font-weight: bold;
+}
+
+.hero {
+background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+url('https://images.unsplash.com/photo-1601645191163-3fc0d5d64e35?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover;
+height: 80vh;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+color: var(--hero-white);
+}
+
+.hero-content h1 {
+font-size: 4rem;
+margin-bottom: 1rem;
+text-transform: uppercase;
+}
+
+.hero-content p {
+font-size: 1.5rem;
+margin-bottom: 2rem;
+}
+
+.btn {
+display: inline-block;
+padding: 1rem 2rem;
+background: var(--hero-red);
+color: var(--hero-white);
+text-decoration: none;
+text-transform: uppercase;
+border-radius: 5px;
+transition: background 0.3s ease;
+}
+
+.btn:hover {
+background: #c41919;
+}
+
+.features {
+padding: 4rem 0;
+background: #f4f4f4;
+}
+
+.features-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 2rem;
+margin-top: 2rem;
+}
+
+.feature-card {
+background: var(--hero-white);
+padding: 2rem;
+border-radius: 10px;
+text-align: center;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.feature-card i {
+font-size: 3rem;
+color: var(--hero-red);
+margin-bottom: 1rem;
+}
+
+.auth-modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.8);
+align-items: center;
+justify-content: center;
+}
+
+.modal-content {
+background: var(--hero-white);
+padding: 2rem;
+border-radius: 10px;
+width: 90%;
+max-width: 400px;
+}
+
+.form-group {
+margin-bottom: 1rem;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 0.5rem;
+}
+
+.form-group input {
+width: 100%;
+padding: 0.5rem;
+border: 1px solid var(--hero-grey);
+border-radius: 5px;
+}
+
+.close-modal {
+float: right;
+cursor: pointer;
+font-size: 1.5rem;
+}
+
+footer {
+background: var(--hero-black);
+color: var(--hero-white);
+text-align: center;
+padding: 2rem 0;
+position: relative;
+bottom: 0;
+width: 100%;
+}
+
+@media (max-width: 768px) {
+.hero-content h1 {
+font-size: 3rem;
+}
+
+nav ul {
+flex-direction: column;
+}
+
+nav ul li {
+margin: 0.5rem 0;
+}
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<header>
+<nav class="container">
+<h1 style="font-family: 'Roboto Condensed', sans-serif; text-transform: uppercase; font-weight: bold;">Hero-Gen</h1>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="hero-gallery.html">My Heroes</a></li>
+<li><a href="#" id="loginBtn">Login</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+<section class="hero" style="background-attachment: fixed;">
+<div class="hero-content">
+<h1>Your Hero Gallery</h1>
+<p>View and manage your created superheroes</p>
+<a href="#" class="btn" id="getStartedBtn">Get Started</a>
+</div>
+</section>
+
+<section class="features container" style="background: var(--hero-white);">
+<h2>Features</h2>
+<div class="features-grid">
+<div class="feature-card">
+<i class="fas fa-mask"></i>
+<h3>Custom Heroes</h3>
+<p>Design unique superheroes with custom powers and backgrounds</p>
+</div>
+<div class="feature-card">
+<i class="fas fa-save"></i>
+<h3>Save &amp; Share</h3>
+<p>Save your creations and share them with the community</p>
+</div>
+<div class="feature-card">
+<i class="fas fa-history"></i>
+<h3>Hero Gallery</h3>
+<p>View and manage all your created superheroes</p>
+</div>
+</div>
+</section>
+
+<div class="auth-modal" id="authModal">
+<div class="modal-content">
+<span class="close-modal" id="closeModal">×</span>
+<h2>Login / Register</h2>
+<form id="authForm">
+<div class="form-group">
+<label for="username">Username</label>
+<input type="text" id="username" required="">
+</div>
+<div class="form-group">
+<label for="password">Password</label>
+<input type="password" id="password" required="">
+</div>
+<button type="submit" class="btn">Login</button>
+<p>Don't have an account? <a href="#" id="toggleAuth">Register</a></p>
+</form>
+</div>
+</div>
+</main>
+
+<footer>
+<p>© 2024 Hero-Gen. All rights reserved.</p>
+</footer>
+
+<script>
+const authModal = document.getElementById('authModal');
+const loginBtn = document.getElementById('loginBtn');
+const closeModal = document.getElementById('closeModal');
+const authForm = document.getElementById('authForm');
+const toggleAuth = document.getElementById('toggleAuth');
+const getStartedBtn = document.getElementById('getStartedBtn');
+
+let isLoginMode = true;
+
+loginBtn.addEventListener('click', () => {
+authModal.style.display = 'flex';
+});
+
+getStartedBtn.addEventListener('click', () => {
+if (!localStorage.getItem('currentUser')) {
+authModal.style.display = 'flex';
+} else {
+window.location.href = 'Create-Superhero.html';
+}
+});
+
+closeModal.addEventListener('click', () => {
+authModal.style.display = 'none';
+});
+
+toggleAuth.addEventListener('click', (e) => {
+e.preventDefault();
+isLoginMode = !isLoginMode;
+toggleAuth.textContent = isLoginMode ? 'Register' : 'Login';
+authForm.querySelector('button').textContent = isLoginMode ? 'Login' : 'Register';
+authForm.querySelector('h2').textContent = isLoginMode ? 'Login' : 'Register';
+});
+
+authForm.addEventListener('submit', (e) => {
+e.preventDefault();
+const username = document.getElementById('username').value;
+const password = document.getElementById('password').value;
+
+let users = JSON.parse(localStorage.getItem('users')) || {};
+
+if (isLoginMode) {
+// Login
+if (users[username] && users[username].password === password) {
+localStorage.setItem('currentUser', username);
+window.location.href = 'Create-Superhero.html';
+} else {
+alert('Invalid credentials');
+}
+} else {
+// Register
+if (users[username]) {
+alert('Username already exists');
+return;
+}
+users[username] = {
+password: password,
+heroes: []
+};
+localStorage.setItem('users', JSON.stringify(users));
+localStorage.setItem('currentUser', username);
+window.location.href = 'Create-Superhero.html';
+}
+});
+
+// Check if user is logged in
+window.addEventListener('load', () => {
+const currentUser = localStorage.getItem('currentUser');
+if (currentUser) {
+loginBtn.textContent = 'Logout';
+loginBtn.addEventListener('click', () => {
+localStorage.removeItem('currentUser');
+window.location.reload();
+});
+}
+});
+
+window.addEventListener('click', (e) => {
+if (e.target === authModal) {
+authModal.style.display = 'none';
+}
+});
+</script>
+</body>
+</html>
