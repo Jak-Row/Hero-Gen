@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Boomerang",
+        "description": "A boomerang that can be thrown to hit multiple targets.",
+        "powerLevel": 1,
+        "range": "Mid",
+        "role": "Offense"
+    },
+    {
+        "name": "Force Field",
+        "description": "A force field that can protect the user from attacks.",
+        "powerLevel": 3,
+        "range": "Close",
+        "role": "Defense"
+    },
+    {
+        "name": "Teleportation Gun",
+        "description": "A gun that can teleport the user to a different location.",
+        "powerLevel": 2,
+        "range": "Long",
+        "role": "Support"
+    },
+    {
+
+    }
+]

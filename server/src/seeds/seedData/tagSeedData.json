@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Range: Close",
+        "description": "Abilities that can only be used in close combat."
+    },
+    {
+        "name": "Power Level: 1",
+        "description": "Lowest level of power."
+    },
+    {
+        "name": "Pattern: Cone",
+        "description": "Abilities that affect a cone-shaped area."
+    },
+    {
+
+    }
+]
