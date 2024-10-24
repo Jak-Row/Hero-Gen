@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Heir",
+        "description": "An ability passed down from generation to generation."
+    },
+    {
+        "name": "Mutant",
+        "description": "An ability that the user was born with, but didn't inherit."
+    },
+    {
+        "name": "Boon",
+        "description": "An ability gifted to the user from a higher power."
+    },
+    {
+        "name": "Pact",
+        "description": "An ability that the user gained from making a deal with a powerful entity."
+    },
+    {
+        "name": "Legacy",
+        "description": "An ability given to the user by a mentor at some point after birth."
+    },
+    {
+        "name": "Study",
+        "description": "An ability that the user gained through years of practice and study."
+    },
+    {
+        "name": "Experiment",
+        "description": "An ability that the user gained through scientific experimentation."
+    },
+    {
+        "name": "Accident",
+        "description": "An ability that the user gained through a freak accident."
+    },
+    {
+        "name": "Powerless",
+        "description": "No power of any kind."
+    }
+]
