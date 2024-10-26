@@ -1,9 +1,11 @@
-const Gadget = require('./gadget');
-const Hero = require('./hero');
-const Origin = require('./origin');
-const Power = require('./power');
-const Tag = require('./tag');
+const Gadget = require('./gadget.js');
+const Hero = require('./hero.js');
+const Origin = require('./origin.js');
+const Power = require('./power.js');
+const Tag = require('./tag.js');
 const User = require('./user');
+const GadgetTag = require('./gadgetTag.js');
+const PowerTag = require('./powerTag.js');
 
 User.hasMany(Hero, {
     foreignKey: 'user_id',
@@ -43,12 +45,20 @@ Gadget.hasMany(Hero, {
 
 Gadget.belongsToMany(Tag, {
     foreignKey: 'gadget_id',
-    through: 'gadget_tag'
+    through: 'gadgetTag'
+});
+
+Tag.hasMany(Gadget, {
+    foreignKey: 'tag_id'
 });
 
 Power.belongsToMany(Tag, {
     foreignKey: 'power_id',
-    through: 'power_tag'
+    through: 'powerTag'
+});
+
+Tag.hasMany(Power, {
+    foreignKey: 'tag_id'
 });
 
 

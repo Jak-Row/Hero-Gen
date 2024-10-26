@@ -1,17 +1,202 @@
 [
     {
         "name": "Range: Close",
-        "description": "Abilities that can only be used in close combat."
+        "description": "Abilities that are used in close combat."
+    },
+    {
+        "name": "Range: Mid",
+        "description": "Abilities that are used in mid-range combat."
+    },
+    {
+        "name": "Range: Long",
+        "description": "Abilities that are used in long-range combat."
+    },
+    {
+        "name": "Role: Offense",
+        "description": "Abilities that are used to attack enemies."
+    },
+    {
+        "name": "Role: Defense",
+        "description": "Abilities that are used to protect the user and allies."
+    },
+    {
+        "name": "Role: Support",
+        "description": "Abilities that are used to help allies."
     },
     {
         "name": "Power Level: 1",
-        "description": "Lowest level of power."
+        "description": "Lowest level of power. On level with a particularly athletic non-powered human."
+    },
+    {
+        "name": "Power Level: 2",
+        "description": "Medium level of power. On level with minor superhuman abilities."
+    },
+    {
+        "name": "Power Level: 3",
+        "description": "High level of power. On level with the average superhuman ability."
+    },
+    {
+        "name": "Power Level: 4",
+        "description": "Very high level of power. On level with major superhuman abilities."
+    },
+    {
+        "name": "Power Level: 5",
+        "description": "Highest level of power. On level with planet-destroying threats."
+    },
+    {
+        "name": "Pattern: Single Target",
+        "description": "Abilities that affect a single target."
+    },
+    {
+        "name": "Pattern: Area",
+        "description": "Abilities that affect an area."
     },
     {
         "name": "Pattern: Cone",
         "description": "Abilities that affect a cone-shaped area."
     },
     {
-
+        "name": "Pattern: Beam",
+        "description": "Abilities that affect a straight line."
+    },
+    {
+        "name": "Pattern: Burst",
+        "description": "Abilities that affect a circular area around the user." 
+    },
+    {
+        "name": "Pattern: Ball",
+        "description": "Abilities that affect a spherical area. Typically ranged." 
+    },
+    {
+        "name": "Element Type: Divine",
+        "description": "Elements that exist in a realm wholly outside of human understanding." 
+    },
+    {
+        "name": "Element Type: Natural",
+        "description": "Elements that are commonly found in nature." 
+    },
+    {
+        "name": "Element Type: Organic",
+        "description": "Elements that deal with life and living things." 
+    },
+    {
+        "name": "Element Type: Scientific",
+        "description": "Elements commonly associated with science and technology." 
+    },
+    {
+        "name": "Element Type: Skill",
+        "description": "No power, though possibly nearing superhuman aptitude in a natural ability." 
+    },
+    {
+        "name": "Element: Dark",
+        "description": "Of or relating to shadows, darkness, and similar concepts." 
+    },
+    {
+        "name": "Element: Energy",
+        "description": "Of or relating to energy itself." 
+    },
+    {
+        "name": "Element: Fate",
+        "description": "Of or relating to luck, misfortune, and similar concepts." 
+    },
+    {
+        "name": "Element: Light",
+        "description": "Of or relating to light, illumination, and similar concepts." 
+    },
+    {
+        "name": "Element: Air",
+        "description": "Of or relating to wind, the atmosphere, and similar concepts." 
+    },
+    {
+        "name": "Element: Earth",
+        "description": "Of or relating to plants, rocks, and similar concepts." 
+    },
+    {
+        "name": "Element: Fire",
+        "description": "Of or relating to flame, heat, and similar concepts." 
+    },
+    {
+        "name": "Element: Ice",
+        "description": "Of or relating to freezing, cold, and similar concepts." 
+    },
+    {
+        "name": "Element: Water",
+        "description": "Of or relating to rain, oceans, and similar concepts." 
+    },
+    {
+        "name": "Element: Body",
+        "description": "Of or relating to human or animal bodies." 
+    },
+    {
+        "name": "Element: Death",
+        "description": "Of or relating to dying, decay, and similar concepts." 
+    },
+    {
+        "name": "Element: Life",
+        "description": "Of or relating to life and living things." 
+    },
+    {
+        "name": "Element: Love",
+        "description": "Of or relating to emotions, beliefs, and similar concepts." 
+    },
+    {
+        "name": "Element: Venom",
+        "description": "Of or relating to poisons, toxins, and similar concepts." 
+    },
+    {
+        "name": "Element: Electric",
+        "description": "Of or relating to lightning, electricity, and similar concepts." 
+    },
+    {
+        "name": "Element: Gravity",
+        "description": "Of or relating to gravitational forces." 
+    },
+    {
+        "name": "Element: Nuclear",
+        "description": "Of or relating to nuclear reactions." 
+    },
+    {
+        "name": "Element: Psionic",
+        "description": "Of or relating to psychic abilities." 
+    },
+    {
+        "name": "Element: Sound",
+        "description": "Of or relating to noise." 
+    },
+    {
+        "name": "Element: Space",
+        "description": "Of or relating to distance and space itself." 
+    },
+    {
+        "name": "Element: Time",
+        "description": "Of or relating to the passage of time itself." 
+    },
+    {
+        "name": "Effect: Accurate",
+        "description": "Will hit the intended target with a high degree of accuracy." 
+    },
+    {
+        "name": "Effect: Explosive",
+        "description": "Will hit the intended target and the surrounding area." 
+    },
+    {
+        "name": "Effect: Homing",
+        "description": "Will follow the intended target until it hits." 
+    },
+    {
+        "name": "Effect: Incendiary",
+        "description": "Will cause a fire upon impact." 
+    },
+    {
+        "name": "Effect: Piercing",
+        "description": "Will hit the intended target through cover and armor." 
+    },
+    {
+        "name": "Effect: Radiation",
+        "description": "Will cause radiation poisoning upon impact." 
+    },
+    {
+        "name": "Effect: Ricochet",
+        "description": "Will bounce off surfaces at least once before activating." 
     }
 ]
