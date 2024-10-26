@@ -1,0 +1,555 @@
+<html><head><base href="https://hero-gen.comics"><title>Hero-Gen: Create Your Superhero</title><style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+  
+  :root {
+  --hero-red: #ED1D24;
+  --hero-blue: #0282F9;
+  --hero-white: #FFFFFF;
+  --hero-black: #202020;
+  --hero-grey: #767676;
+  --hero-light-grey: #F2F2F2;
+  }
+  
+  * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
+  
+  body {
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: var(--hero-white);
+  color: var(--hero-black);
+  line-height: 1.6;
+  text-transform: uppercase;
+  }
+  
+  .feature p, #heroList li {
+  text-transform: none;
+  }
+  
+  .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  }
+  
+  header {
+  background-color: var(--hero-black);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  }
+  
+  .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+  
+  .logo {
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--hero-white);
+  }
+  
+  nav ul {
+  display: flex;
+  list-style-type: none;
+  }
+  
+  nav ul li {
+  margin-left: 20px;
+  }
+  
+  nav ul li a {
+  color: var(--hero-white);
+  text-decoration: none;
+  font-weight: 700;
+  }
+  
+  .hero {
+  background: url('https://images.unsplash.com/photo-1553976468-dcd9082bcd28?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHN1cGVybWFufGVufDB8fDB8fHww') no-repeat center center/cover;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--hero-white);
+  position: relative;
+  }
+  
+  .hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-content {
+  position: relative;
+  z-index: 1;
+  }
+  
+  .hero h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  }
+  
+  .hero p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  }
+  
+  .btn, button[type="submit"] {
+  display: inline-block;
+  background-color: var(--hero-red);
+  color: var(--hero-white);
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-family: 'Roboto Condensed', sans-serif;
+  }
+  
+  .btn:hover, button[type="submit"]:hover {
+  background-color: var(--hero-blue);
+  }
+  
+  .features {
+  padding: 50px 0;
+  background-color: var(--hero-light-grey);
+  }
+  
+  .features h2 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  }
+  
+  .feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  }
+  
+  .feature {
+  background-color: var(--hero-white);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .feature img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  }
+  
+  .feature h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: var(--hero-red);
+  }
+  
+  footer {
+  background-color: var(--hero-black);
+  color: var(--hero-white);
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 50px;
+  }
+  
+  .user-actions {
+  display: flex;
+  align-items: center;
+  }
+  
+  .user-actions .btn {
+  margin-left: 10px;
+  font-size: 0.9em;
+  padding: 8px 15px;
+  }
+  
+  #loginStatus {
+  color: var(--hero-white);
+  margin-right: 10px;
+  }
+  
+  #logoutBtn {
+  background-color: var(--hero-grey);
+  }
+  
+  #logoutBtn:hover {
+  background-color: var(--hero-red);
+  }
+  
+  .modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+  background-color: var(--hero-white);
+  margin: 15% auto;
+  padding: 30px;
+  border: none;
+  width: 400px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto Condensed', sans-serif;
+  }
+  
+  .modal-content h2 {
+  color: var(--hero-red);
+  margin-bottom: 20px;
+  }
+  
+  .modal-content input[type="text"], .modal-content input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--hero-grey);
+  border-radius: 3px;
+  font-family: 'Roboto Condensed', sans-serif;
+  }
+  
+  .modal-content .btn {
+  width: 100%;
+  }
+  
+  #heroHistory {
+  margin-top: 20px;
+  padding: 50px 0;
+  background-color: var(--hero-light-grey);
+  border-radius: 5px;
+  }
+  
+  #heroHistory h3 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: var(--hero-red);
+  font-family: 'Roboto Condensed', sans-serif;
+  }
+  
+  #heroList {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  }
+  
+  #heroList li {
+  background-color: var(--hero-white);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto Condensed', sans-serif;
+  }
+  
+  @media (max-width: 768px) {
+  .hero h1 {
+  font-size: 2em;
+  }
+  
+  .hero p {
+  font-size: 1em;
+  }
+  
+  .feature-grid {
+  grid-template-columns: 1fr;
+  }
+  }
+  </style></head><body>
+  <header>
+  <div class="container nav-container">
+  <div class="logo">Hero-Gen</div>
+  <nav>
+  <ul style="justify-content: space-between;">
+  <li><a href="#myHeroes" id="myHeroesLink">My Heroes</a></li>
+  <li><a href="#features">Features</a></li>
+  <li><a href="#about">About</a></li>
+  </ul>
+  </nav>
+  <div class="user-actions">
+  <span id="loginStatus"></span>
+  <a href="#" class="btn" id="loginBtn">Login</a>
+  <a href="#" class="btn" id="signupBtn">Sign Up</a>
+  <a href="#" class="btn" id="logoutBtn" style="display:none;">Logout</a>
+  </div>
+  </div>
+  </header>
+  
+  <main>
+  <section id="home" class="hero" style="background: url('https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?q=80&amp;w=1470&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center 10%/cover;">
+  <div class="hero-content">
+  <h1>Create Your Own Superhero</h1>
+  <p>Unleash your imagination and bring your superhero to life!</p>
+  <a href="Create-Superhero.html" class="btn" id="createHeroBtn">Create Hero</a>
+  </div>
+  </section>
+  
+  <section id="features" class="features">
+  <div class="container">
+  <h2>Choose Your Hero's Origin</h2>
+  <div class="feature-grid">
+  <div class="feature">
+  <img src="https://images.unsplash.com/photo-1576319155264-99536e0be1ee?w=500&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHNjaWVuY2UlMjBleHBlcmltZW50fGVufDB8fDB8fHww" alt="Science experiment in a lab" width="250" height="200">
+  <h3>Science Experiment Gone Wrong</h3>
+  <p>Unexpected results lead to extraordinary abilities.</p>
+  </div>
+  <div class="feature">
+  <img src="https://images.unsplash.com/photo-1553976468-dcd9082bcd28?q=80&amp;w=1530&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Superhero statue silhouette against a sunset sky, centered" width="250" height="200">
+  <h3>BORN WITH SUPERPOWERS</h3>
+  <p>Discover innate abilities from birth and learn to control them.</p>
+  </div>
+  <div class="feature">
+  <img src="https://images.unsplash.com/photo-1681911046053-1d2fdce39ea0?w=500&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2VuZXRpY3xlbnwwfHwwfHx8MA%3D%3D" alt="DNA structure visualization" width="250" height="200">
+  <h3>ANCIENT ARTIFACT DISCOVERY</h3>
+  <p>Craft a compelling backstory for your hero.</p>
+  </div>
+  <div class="feature">
+  <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&amp;w=1470&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Close-up of a futuristic robot face with glowing blue eyes, centered in the frame" width="250" height="200">
+  <h3>Costume Design</h3>
+  <p>Design the perfect outfit for your superhero.</p>
+  </div>
+  <div class="feature">
+  <img src="https://images.unsplash.com/photo-1711995363988-54f3887a1803?w=500&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fGNvc21pYyUyMHJheXN8ZW58MHx8MHx8fDA%3D" alt="Cosmic rays in space" width="250" height="200">
+  <h3>Power Source</h3>
+  <p>Choose from various superhuman power origins.</p>
+  </div>
+  </div>
+  </div>
+  </section>
+  
+  <section id="heroHistory" style="display:none;">
+  <div class="container">
+  <h3>Your Hero History</h3>
+  <ul id="heroList"></ul>
+  </div>
+  </section>
+  </main>
+  
+  <footer>
+  <div class="container">
+  <p>© 2023 Hero-Gen. All rights reserved.</p>
+  </div>
+  </footer>
+  
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+  <div class="modal-content">
+  <span class="close">×</span>
+  <h2>Login</h2>
+  <form id="loginForm">
+  <input type="text" id="loginUsername" placeholder="Username" required=""><br><br>
+  <input type="password" id="loginPassword" placeholder="Password" required=""><br><br>
+  <button type="submit" class="btn">Login</button>
+  </form>
+  </div>
+  </div>
+  
+  <!-- Signup Modal -->
+  <div id="signupModal" class="modal">
+  <div class="modal-content">
+  <span class="close">×</span>
+  <h2>Sign Up</h2>
+  <form id="signupForm">
+  <input type="text" id="signupUsername" placeholder="Username" required=""><br><br>
+  <input type="password" id="signupPassword" placeholder="Password" required=""><br><br>
+  <button type="submit" class="btn">Sign Up</button>
+  </form>
+  </div>
+  </div>
+  
+  <script>
+  // User management
+  let currentUser = null;
+  
+  // DOM Elements
+  const loginBtn = document.getElementById('loginBtn');
+  const signupBtn = document.getElementById('signupBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const loginStatus = document.getElementById('loginStatus');
+  const loginModal = document.getElementById('loginModal');
+  const signupModal = document.getElementById('signupModal');
+  const loginForm = document.getElementById('loginForm');
+  const signupForm = document.getElementById('signupForm');
+  const createHeroBtn = document.getElementById('createHeroBtn');
+  const myHeroesLink = document.getElementById('myHeroesLink');
+  const heroHistory = document.getElementById('heroHistory');
+  const heroList = document.getElementById('heroList');
+  
+  // Event Listeners
+  loginBtn.addEventListener('click', () => loginModal.style.display = "block");
+  signupBtn.addEventListener('click', () => signupModal.style.display = "block");
+  logoutBtn.addEventListener('click', logout);
+  myHeroesLink.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (!currentUser) {
+  alert('Please log in to view your heroes');
+  return;
+  }
+  heroHistory.scrollIntoView({ behavior: 'smooth' });
+  loadHeroHistory();
+  heroHistory.style.display = "block";
+  });
+  
+  // Close modals when clicking outside
+  window.onclick = function(event) {
+  if (event.target == loginModal) {
+  loginModal.style.display = "none";
+  }
+  if (event.target == signupModal) {
+  signupModal.style.display = "none";
+  }
+  }
+  
+  // Close buttons for modals
+  document.querySelectorAll('.close').forEach(closeBtn => {
+  closeBtn.onclick = function() {
+  loginModal.style.display = "none";
+  signupModal.style.display = "none";
+  }
+  });
+  
+  loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const username = document.getElementById('loginUsername').value;
+  const password = document.getElementById('loginPassword').value;
+  login(username, password);
+  });
+  
+  signupForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const username = document.getElementById('signupUsername').value;
+  const password = document.getElementById('signupPassword').value;
+  signup(username, password);
+  });
+  
+  createHeroBtn.addEventListener('click', createHero);
+  
+  // Add smooth scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+  e.preventDefault();
+  
+  document.querySelector(this.getAttribute('href')).scrollIntoView({
+  behavior: 'smooth'
+  });
+  });
+  });
+  
+  // Add parallax effect to hero section
+  window.addEventListener('scroll', function() {
+  const scrollPosition = window.pageYOffset;
+  document.querySelector('.hero').style.backgroundPositionY = scrollPosition * 0.7 + 'px';
+  });
+  
+  // Add animation to feature
+  const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+  if (entry.isIntersecting) {
+  entry.target.style.opacity = 1;
+  entry.target.style.transform = 'translateY(0)';
+  }
+  });
+  }, { threshold: 0.1 });
+  
+  document.querySelectorAll('.feature').forEach(item => {
+  item.style.opacity = 0;
+  item.style.transform = 'translateY(50px)';
+  observer.observe(item);
+  });
+  
+  // Functions
+  function login(username, password) {
+  const users = JSON.parse(localStorage.getItem('users')) || {};
+  if (users[username] && users[username].password === password) {
+  currentUser = username;
+  updateLoginStatus();
+  loginModal.style.display = "none";
+  alert('Login successful!');
+  loadHeroHistory();
+  } else {
+  alert('Invalid username or password');
+  }
+  }
+  
+  function signup(username, password) {
+  const users = JSON.parse(localStorage.getItem('users')) || {};
+  if (users[username]) {
+  alert('Username already exists');
+  } else {
+  users[username] = { password: password, heroes: [] };
+  localStorage.setItem('users', JSON.stringify(users));
+  signupModal.style.display = "none";
+  alert('Signup successful! Please log in.');
+  }
+  }
+  
+  function logout() {
+  currentUser = null;
+  updateLoginStatus();
+  heroHistory.style.display = "none";
+  }
+  
+  function updateLoginStatus() {
+  if (currentUser) {
+  loginStatus.textContent = `Welcome, ${currentUser}!`;
+  loginBtn.style.display = "none";
+  signupBtn.style.display = "none";
+  logoutBtn.style.display = "inline-block";
+  heroHistory.style.display = "block";
+  } else {
+  loginStatus.textContent = "";
+  loginBtn.style.display = "inline-block";
+  signupBtn.style.display = "inline-block";
+  logoutBtn.style.display = "none";
+  heroHistory.style.display = "none";
+  }
+  }
+  
+  function createHero() {
+  if (!currentUser) {
+  alert('Please log in to create a hero');
+  return;
+  }
+  window.location.href = "Create-Superhero.html";
+  }
+  
+  function loadHeroHistory() {
+  if (!currentUser) return;
+  const users = JSON.parse(localStorage.getItem('users'));
+  const heroes = users[currentUser].heroes;
+  heroList.innerHTML = '';
+  heroes.forEach(hero => {
+  const li = document.createElement('li');
+  li.textContent = `${hero.name} - Created on ${hero.createdAt}`;
+  heroList.appendChild(li);
+  });
+  }
+  
+  // Check login status on page load
+  updateLoginStatus();
+  </script>
+  </body></html>

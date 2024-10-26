@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Flight",
+        "description": "The ability to fly.",
+        "powerLevel": 2,
+        "range": "Close",
+        "role": "Support"
+    },
+    {
+        "name": "Super Strength",
+        "description": "The ability to exert superhuman force.",
+        "powerLevel": 2,
+        "range": "Close",
+        "role": "Offense"
+    },
+    {
+        "name": "Baja Blast",
+        "description": "The ability to shoot a blast of refreshing energy.",
+        "powerLevel": 5,
+        "range": "Long",
+        "role": "Support"
+    },
+    {
+
+    }
+]
