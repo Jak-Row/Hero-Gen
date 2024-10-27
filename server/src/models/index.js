@@ -1,11 +1,11 @@
-const Gadget = require('./gadget.js');
-const Hero = require('./hero.js');
-const Origin = require('./origin.js');
-const Power = require('./power.js');
-const Tag = require('./tag.js');
+const Gadget = require('./gadget');
+const Hero = require('./hero');
+const Origin = require('./origin');
+const Power = require('./power');
+const Tag = require('./tag');
 const User = require('./user');
-const GadgetTag = require('./gadgetTag.js');
-const PowerTag = require('./powerTag.js');
+const GadgetTag = require('./gadgetTag');
+const PowerTag = require('./powerTag');
 
 User.hasMany(Hero, {
     foreignKey: 'user_id',
@@ -63,6 +63,7 @@ Tag.hasMany(Power, {
 
 
 
+
 /*Hero.hasOne(Origin, {
     foreignKey: 'id',
     onDelete: 'CASCADE'
@@ -92,5 +93,6 @@ Gadget.belongsToMany(Hero, {
     foreignKey: 'id',
     through: 'hero_gadget'
 });*/
+
 
 module.exports = { Gadget, Hero, Origin, Power, Tag, User };
