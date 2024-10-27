@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../server/src/page-support/css/homepage-login.css">
+    <title>Hero-Gen</title>
+</head>
+
+<body>
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Hero-Gen</div>
+            <nav>
+                <ul style="justify-content: space-between;">
+                    <li><a href="../client/SuperHero_History.html" id="myHeroesLink">My Heroes</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <span id="loginStatus"></span>
+                <a href="#" class="btn" id="loginBtn">Login</a>
+                <a href="#" class="btn" id="signupBtn">Sign Up</a>
+                <a href="#" class="btn" id="logoutBtn" style="display:none;">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero" 
+            style="background: url('https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?q=80&amp;w=1470&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center 10%/cover;">
+            <div class="hero-content">
+                <h1>Create Your Own Superhero</h1>
+                <p>Unleash your imagination and bring your superhero to life!</p>
+                <a href="../client/Create-Superhero.html" class="btn" id="createHeroBtn">Create Hero</a>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Choose Your Hero's Origin</h2>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <img src="https://images.unsplash.com/photo-1576319155264-99536e0be1ee?w=500&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHNjaWVuY2UlMjBleHBlcmltZW50fGVufDB8fDB8fHww"
+                            alt="Science experiment in a lab" width="250" height="200">
+                        <h3>Science Experiment Gone Wrong</h3>
+                        <p>Unexpected results lead to extraordinary abilities.</p>
+                    </div>
+                    <div class="feature">
+                        <img src="https://images.unsplash.com/photo-1553976468-dcd9082bcd28?q=80&amp;w=1530&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Superhero statue silhouette against a sunset sky" width="250" height="200">
+                        <h3>BORN WITH SUPERPOWERS</h3>
+                        <p>Discover innate abilities from birth and learn to control them.</p>
+                    </div>
+                    <div class="feature">
+                        <img src="https://images.unsplash.com/photo-1681911046053-1d2fdce39ea0?w=500&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2VuZXRpY3xlbnwwfHwwfHx8MA%3D%3D"
+                            alt="DNA structure visualization" width="250" height="200">
+                        <h3>ANCIENT ARTIFACT DISCOVERY</h3>
+                        <p>Craft a compelling backstory for your hero.</p>
+                    </div>
+                    <div class="feature">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&amp;w=1470&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Futuristic robot face with glowing blue eyes" width="250" height="200">
+                        <h3>Costume Design</h3>
+                        <p>Design the perfect outfit for your superhero.</p>
+                    </div>
+                    <div class="feature">
+                        <img src="https://images.unsplash.com/photo-1711995363988-54f3887a1803?w=500&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fGNvc21pYyUyMHJheXN8ZW58MHx8MHx8fDA%3D"
+                            alt="Cosmic rays in space" width="250" height="200">
+                        <h3>Power Source</h3>
+                        <p>Choose from various superhuman power origins.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="heroHistory" style="display:none;">
+            <div class="container">
+                <h3>Your Hero History</h3>
+                <ul id="heroList"></ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 Hero-Gen. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Username" required><br><br>
+                <input type="password" id="loginPassword" placeholder="Password" required><br><br>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <input type="text" id="signupUsername" placeholder="Username" required><br><br>
+                <input type="password" id="signupPassword" placeholder="Password" required><br><br>
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../server/src/page-support/script/homepage-login.js"></script>
+</body>
+
+</html>

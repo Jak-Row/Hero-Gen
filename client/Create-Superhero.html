@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-gb" class="enhanced-ux scrollbar--17px show-ccpa">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="origin-trial" content="A/kargTFyk8MR5ueravczef/wIlTkbVk1qXQesp39nV+xNECPdLBVeYffxrM8TmZT6RArWGQVCJ0LRivD7glcAUAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVUaGlyZFBhcnR5U3RvcmFnZVBhcnRpdGlvbmluZzIiLCJleHBpcnkiOjE3NDIzNDIzOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+    <script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/lqsTZ5beIbCkK4uGEGv9JmUR/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-me+fKkpx+LDPr+jjTccMyZRS5BoP+JLiYHKscp4bUxp+j6TnL/qxiwcgzpRCCrlc"></script>
+    <script type="text/javascript" async="" src="https://static.criteo.net/js/ld/publishertag.prebid.144.js"></script>
+    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-LHKZPVTNWC&amp;cx=c&amp;_s"></script>
+    <title>Hero-Gen: Create Your Superhero</title>
+    <link rel="stylesheet" href="../server/src/page-support/css/Create-Superhero.css">
+</head>
+<body>
+<header>
+    <div class="container nav-container">
+        <div class="logo">Hero-Gen</div>
+        <nav>
+            <ul>
+                <li><a href="../client/homepage-login.html">Home</a></li>
+                <li><a href="https://hero-gen.comics/about.html">About</a></li>
+                <li><a href="https://hero-gen.comics/contact.html">Contact</a></li>
+                <li><a href="https://hero-gen.comics/logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="quiz-container">
+        <form class="hero-form" id="heroForm">
+            <h2>Create Your Superhero</h2>
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="form-step active" data-step="1">
+                <div class="question-card">
+                    <h3>What's Your Hero's Name?</h3>
+                    <div class="form-group">
+                        <input type="text" id="heroName" name="heroName" placeholder="Enter Hero Name" required="">
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </div>
+            </div>
+            
+            <!-- Step 2 -->
+<div class="form-step" data-step="2">
+    <div class="question-card">
+        <h3>What's Your Hero's Alias?</h3>
+        <div class="form-group">
+            <input type="text" id="alias" name="alias" placeholder="Enter Alias" required="">
+        </div>
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" class="next-btn">Next</button>
+    </div>
+</div>
+
+<!-- Step 3 -->
+<div class="form-step" data-step="3">
+    <div class="question-card">
+        <h3>Describe Your Hero's General Appearance:</h3>
+        <div class="form-group">
+            <input type="text" id="generalAppearance" name="generalAppearance" placeholder="General Appearance" required="">
+        </div>
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" id="next-btn-3" class="next-btn">Next</button>
+    </div>
+</div>
+
+<!-- Step 4 -->
+<div class="form-step" data-step="4">
+    <div class="question-card">
+        <h3>What Color Theme Does Your Hero Have?</h3>
+        <div class="form-group">
+            <input type="text" id="colorTheme" name="colorTheme" placeholder="Color Theme" required="">
+        </div>
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" id="next-btn-4" class="next-btn">Next</button>
+    </div>
+</div>
+
+<!-- Step 5 -->
+<div class="form-step" data-step="5">
+    <div class="question-card">
+        <h3>What's the Material of Your Hero's Costume?</h3>
+        <div class="form-group">
+            <input type="text" id="material" name="material" placeholder="Material" required="">
+        </div>
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" class="next-btn">Next</button>
+    </div>
+</div>
+
+<!-- Step 6: Power Level -->
+<div class="form-step" data-step="6">
+    <div class="question-card">
+        <h3>What's Your Hero's Power Level?</h3>
+        <div class="form-group">
+            <div class="scale-container">
+                <span class="scale-label">1</span>
+                <input type="range" id="powerLevel" name="powerLevel" min="1" max="5" value="3">
+                <span class="scale-value" id="powerValue">3</span>
+            </div>
+        </div>
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" class="next-btn">Next</button>
+    </div>
+</div>
+
+<!-- Step 7: Gadget Mastery -->
+<div class="form-step" data-step="7">
+    <div class="question-card">
+        <h3>Gadget Mastery Level</h3>
+        <div class="form-group">
+            <div class="scale-container">
+                <span class="scale-label">1</span>
+                <input type="range" id="gadgetMastery" name="gadgetMastery" min="1" max="5" value="3">
+                <span class="scale-value" id="gadgetValue">3</span>
+            </div>
+        </div>
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" class="next-btn">Next</button>
+    </div>
+</div>
+
+<!-- Step 8: Origins -->
+<div class="form-step" data-step="8">
+    <div class="question-card">
+        <h3>What is Your Hero's Origin?</h3>
+        <div class="form-group">
+            <label class="selection-label">
+                <input type="checkbox" name="origins" value="Alien"> Alien
+            </label>
+            <label class="selection-label">
+                <input type="checkbox" name="origins" value="Supernatural"> Supernatural
+            </label>
+            <label class="selection-label">
+                <input type="checkbox" name="origins" value="Scientific"> Scientific
+            </label>
+        </div>
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" class="next-btn">Next</button>
+    </div>
+</div>
+
+<!-- Step 9: Acquisition Method -->
+<div class="form-step" data-step="9">
+    <div class="question-card">
+        <h3>How Did Your Hero Acquire Their Powers?</h3>
+        <div class="form-group">
+            <label class="selection-label">
+                <input type="checkbox" name="acquisitionMethod" value="Innate"> Innate
+            </label>
+            <label class="selection-label">
+                <input type="checkbox" name="acquisitionMethod" value="Accidental"> Accidental
+            </label>
+            <label class="selection-label">
+                <input type="checkbox" name="acquisitionMethod" value="Born with it"> Born with it
+            </label>
+            <label class="selection-label">
+                <input type="checkbox" name="acquisitionMethod" value="Chosen"> Chosen
+            </label>
+            <label class="selection-label">
+                <input type="checkbox" name="acquisitionMethod" value="Intentionally (gained powers through deliberate action or decision)"> Intentionally (gained powers through deliberate action or decision)
+            </label>
+        </div>
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" class="next-btn">Next</button>
+    </div>
+</div>
+
+            
+            <!-- Step 10: Result -->
+            <div class="form-step" data-step="10">
+                <div class="result-card">
+                    <h3>Your Superhero Profile</h3>
+                    <div id="resultContent"></div>
+                    <button type="button" class="restart-btn">Create Another Hero</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2023 Hero-Gen. Unleash your inner superhero!</p>
+    </div>
+</footer>
+
+<script src="../server/src/page-support/script/Create-Superhero.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/service-worker.js')
+            .then(function(registration) {
+                console.log('ServiceWorker registration successful with scope:', registration.scope);
+            }, function(err) {
+                console.log('ServiceWorker registration failed:', err);
+            });
+        });
+    }
+</script>
+</body>
+</html>

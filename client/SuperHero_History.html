@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero-Gen: Create Your Superhero</title>
+    <link rel="stylesheet" href="../server/src/page-support/css/SuperHero_History.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<header>
+    <nav class="container">
+        <h1 style="font-family: 'Roboto Condensed', sans-serif; text-transform: uppercase; font-weight: bold;">Hero-Gen</h1>
+        <ul>
+            <li><a href="../client/homepage-login.html">Home</a></li>
+            <li><a href="hero-gallery.html">My Heroes</a></li>
+            <li><a href="#" id="loginBtn">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="hero" style="background-attachment: fixed;">
+        <div class="hero-content">
+            <h1>Your Hero Gallery</h1>
+            <p>View and manage your created superheroes</p>
+            <a href="../client/Create-Superhero.html" class="btn" id="getStartedBtn">Get Started</a>
+        </div>
+    </section>
+
+    <section class="features container" style="background: var(--hero-white);">
+        <h2>Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-mask"></i>
+                <h3>Custom Heroes</h3>
+                <p>Design unique superheroes with custom powers and backgrounds</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-save"></i>
+                <h3>Save &amp; Share</h3>
+                <p>Save your creations and share them with the community</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-history"></i>
+                <h3>Hero Gallery</h3>
+                <p>View and manage all your created superheroes</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="auth-modal" id="authModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">×</span>
+            <h2>Login / Register</h2>
+            <form id="authForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required="">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required="">
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p>Don't have an account? <a href="#" id="toggleAuth">Register</a></p>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>© 2024 Hero-Gen. All rights reserved.</p>
+</footer>
+
+<script src="../server/src/page-support/script/SuperHero_History.js"></script>
+</body>
+</html>
