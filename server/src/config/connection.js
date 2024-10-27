@@ -1,23 +1,14 @@
+let { Sequelize } = require('sequelize');
+require('dotenv').config();
 
-import dotenv from 'dotenv';
-dotenv.config();
+let sequelize = new Sequelize(
+  process.env.DB_NAME || '',
+  process.env.DB_USER || '',
+  process.env.DB_PASSWORD,
+  {
+    host: 'localhost',
+    dialect: 'postgres'
+  }
+);
 
-import { Sequelize } from 'sequelize';
-
-let sequelize;
-
-if (process.env.DB_URL) {
-  sequelize = new Sequelize(process.env.DB_URL);
-} else {
-  sequelize = new Sequelize(
-    process.env.DB_NAME || '',
-    process.env.DB_USER || '',
-    process.env.DB_PASSWORD,
-    {
-      host: 'localhost',
-      dialect: 'postgres',
-    },
-  );
-}
-
-export default sequelize;
+module.exports = sequelize;
