@@ -4,8 +4,8 @@ const Origin = require('./origin');
 const Power = require('./power');
 const Tag = require('./tag');
 const User = require('./user');
-const GadgetTag = require('./gadgetTag');
-const PowerTag = require('./powerTag');
+//const GadgetTag = require('./gadgetTag');
+//const PowerTag = require('./powerTag');
 
 User.hasMany(Hero, {
     foreignKey: 'user_id',
