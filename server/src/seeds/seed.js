@@ -1,5 +1,6 @@
 const sequelize = require('../config/connection');
-const { Gadget, Hero, Origin, Power, Tag, User } = require('../models');
+const { Gadget, Origin, Power, Tag } = require('../models');
+//const { Hero, User } = require('../models');
 
 const gadgetSeedData = require('./seedData/gadgetSeedData.json');
 const originSeedData = require('./seedData/originSeedData.json');
