@@ -1,0 +1,609 @@
+<!DOCTYPE html><html lang="en-gb" class="enhanced-ux scrollbar--17px show-ccpa"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="origin-trial" content="A/kargTFyk8MR5ueravczef/wIlTkbVk1qXQesp39nV+xNECPdLBVeYffxrM8TmZT6RArWGQVCJ0LRivD7glcAUAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVUaGlyZFBhcnR5U3RvcmFnZVBhcnRpdGlvbmluZzIiLCJleHBpcnkiOjE3NDIzNDIzOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+    <script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/lqsTZ5beIbCkK4uGEGv9JmUR/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-me+fKkpx+LDPr+jjTccMyZRS5BoP+JLiYHKscp4bUxp+j6TnL/qxiwcgzpRCCrlc"></script>
+    <script type="text/javascript" async="" src="https://static.criteo.net/js/ld/publishertag.prebid.144.js"></script>
+    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-LHKZPVTNWC&amp;cx=c&amp;_s"></script>
+    <title>Hero-Gen: Create Your Superhero</title>
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    
+    <!-- Apple Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Hero-Gen">
+    
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+    
+    :root {
+    --hero-red: #ED1D24;
+    --hero-blue: #0282F9;
+    --hero-white: #FFFFFF;
+    --hero-black: #202020;
+    --hero-grey: #767676;
+    --hero-light-grey: #F2F2F2;
+    --boss-gradient: linear-gradient(90deg, #ff416c, #ff4b2b);
+    --button-hover: #ff5733;
+    --progress-height: 15px;
+    }
+    
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    }
+    
+    body {
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: var(--hero-white);
+    color: var(--hero-black);
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+    }
+    
+    .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    }
+    
+    header {
+    background-color: var(--hero-black);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    }
+    
+    .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    
+    .logo {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--hero-white);
+    text-transform: uppercase;
+    }
+    
+    nav ul {
+    display: flex;
+    list-style-type: none;
+    }
+    
+    nav ul li {
+    margin-left: 20px;
+    }
+    
+    nav ul li a {
+    color: var(--hero-white);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    }
+    
+    .quiz-container {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    .hero-form {
+    width: 100%;
+    max-width: 700px;
+    }
+    
+    .hero-form h2 {
+    text-align: center;
+    color: var(--hero-black);
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-transform: uppercase;
+    }
+    
+    .progress-bar {
+    height: var(--progress-height);
+    background-color: var(--hero-light-grey);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    }
+    
+    .progress {
+    height: 100%;
+    background: var(--boss-gradient);
+    width: 0%;
+    transition: width 0.5s ease;
+    }
+    
+    .form-step {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .form-step.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    }
+    
+    .question-card, .result-card {
+    background-color: var(--hero-white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+    }
+    
+    .question-card h3, .result-card h3 {
+    margin-bottom: 20px;
+    color: var(--hero-black);
+    }
+    
+    .form-group {
+    margin-bottom: 20px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--hero-grey);
+    background: transparent;
+    padding: 10px 0;
+    font-size: 1.1em;
+    transition: border-color 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+    border-bottom-color: var(--hero-red);
+    outline: none;
+    }
+    
+    .scale-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    }
+    
+    .scale-label {
+    font-weight: 700;
+    color: var(--hero-black);
+    }
+    
+    .scale-input {
+    width: 70%;
+    }
+    
+    .scale-value {
+    width: 30px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--hero-black);
+    }
+    
+    .next-btn,
+    .prev-btn,
+    .submit-btn,
+    .restart-btn {
+    background-color: var(--hero-red);
+    color: var(--hero-white);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    }
+    
+    .next-btn:hover,
+    .prev-btn:hover,
+    .submit-btn:hover,
+    .restart-btn:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.05);
+    }
+    
+    @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @media (max-width: 768px) {
+    .quiz-container {
+    padding: 20px;
+    }
+    
+    .hero-form {
+    padding: 20px;
+    }
+    
+    .next-btn, .prev-btn, .submit-btn, .restart-btn {
+    width: 100%;
+    text-align: center;
+    }
+    }
+    
+    /* Updated selection-label styles */
+    .selection-label {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.1em;
+    font-weight: 400;
+    color: var(--hero-black);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--hero-light-grey);
+    border: 2px solid var(--hero-grey);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    
+    .selection-label input {
+    margin-right: 15px;
+    transform: scale(1.2);
+    accent-color: var(--hero-red);
+    }
+    
+    .selection-label:hover {
+    background-color: var(--hero-grey);
+    border-color: var(--hero-red);
+    }
+    </style>
+    </head>
+    <body>
+    <header>
+    <div class="container nav-container">
+    <div class="logo">Hero-Gen</div>
+    <nav>
+    <ul>
+    <li><a href="https://hero-gen.comics">Home</a></li>
+    <li><a href="https://hero-gen.comics/about.html">About</a></li>
+    <li><a href="https://hero-gen.comics/contact.html">Contact</a></li>
+    <li><a href="https://hero-gen.comics/logout.html">Logout</a></li>
+    </ul>
+    </nav>
+    </div>
+    </header>
+    
+    <main>
+    <div class="quiz-container">
+    <form class="hero-form" id="heroForm">
+    <h2>Create Your Superhero</h2>
+    
+    <div class="progress-bar">
+    <div class="progress" id="progress"></div>
+    </div>
+    
+    <!-- Step 1 -->
+    <div class="form-step active" data-step="1">
+    <div class="question-card">
+    <h3>What's Your Hero's Name?</h3>
+    <div class="form-group">
+    <input type="text" id="heroName" name="heroName" placeholder="Enter Hero Name" required="">
+    </div>
+    <button type="button" id="next-btn-1" class="next-btn">Next</button>
+    </div>
+    </div>
+    
+    <!-- Step 2 -->
+    <div class="form-step" data-step="2">
+    <div class="question-card">
+    <h3>What's Your Hero's Alias?</h3>
+    <div class="form-group">
+    <input type="text" id="alias" name="alias" placeholder="Enter Alias" required="">
+    </div>
+    <button type="button" class="prev-btn">Previous</button>
+    <button type="button" id="next-btn-2" class="next-btn">Next</button>
+    </div>
+    </div>
+    
+    <!-- Step 3 -->
+    <div class="form-step" data-step="3">
+    <div class="question-card">
+    <h3>Describe Your Hero's General Appearance:</h3>
+    <div class="form-group">
+    <input type="text" id="generalAppearance" name="generalAppearance" placeholder="General Appearance" required="">
+    </div>
+    <button type="button" class="prev-btn">Previous</button>
+    <button type="button" id="next-btn-3" class="next-btn">Next</button>
+    </div>
+    </div>
+    
+    <!-- Step 4 -->
+    <div class="form-step" data-step="4">
+    <div class="question-card">
+    <h3>What Color Theme Does Your Hero Have?</h3>
+    <div class="form-group">
+    <input type="text" id="colorTheme" name="colorTheme" placeholder="Color Theme" required="">
+    </div>
+    <button type="button" class="prev-btn">Previous</button>
+    <button type="button" id="next-btn-4" class="next-btn">Next</button>
+    </div>
+    </div>
+    
+    <!-- Step 5 -->
+    <div class="form-step" data-step="5">
+    <div class="question-card">
+    <h3>What's the Material of Your Hero's Costume?</h3>
+    <div class="form-group">
+    <input type="text" id="material" name="material" placeholder="Material" required="">
+    </div>
+    <button type="button" class="prev-btn">Previous</button>
+    <button type="button" id="next-btn-5" class="next-btn">Next</button>
+    </div>
+    </div>
+    
+    <!-- Step 6: Power Level -->
+    <div class="form-step" data-step="6">
+    <div class="question-card">
+    <h3>What's Your Hero's Power Level?</h3>
+    <div class="form-group">
+    <div class="scale-container">
+    <span class="scale-label">1</span>
+    <input type="range" id="powerLevel" name="powerLevel" min="1" max="5" value="3">
+    <span class="scale-value" id="powerValue">3</span>
+    </div>
+    </div>
+    <button type="button" class="prev-btn">Previous</button>
+    <button type="button" id="next-btn-6" class="next-btn">Next</button>
+    </div>
+    </div>
+    
+    <!-- Step 7: Gadget Mastery -->
+    <div class="form-step" data-step="7">
+    <div class="question-card">
+    <h3>Gadget Mastery Level</h3>
+    <div class="form-group">
+    <div class="scale-container">
+    <span class="scale-label">1</span>
+    <input type="range" id="gadgetMastery" name="gadgetMastery" min="1" max="5" value="3">
+    <span class="scale-value" id="gadgetValue">3</span>
+    </div>
+    </div>
+    <button type="button" class="prev-btn">Previous</button>
+    <button type="button" id="next-btn-7" class="next-btn">Next</button>
+    </div>
+    </div>
+    
+    <!-- Step 8: Origins -->
+    <div class="form-step" data-step="8">
+    <div class="question-card">
+    <h3>What is Your Hero's Origin?</h3>
+    <div class="form-group">
+    <label class="selection-label">
+    <input type="checkbox" name="origins" value="Alien">
+    Alien
+    </label>
+    <label class="selection-label">
+    <input type="checkbox" name="origins" value="Supernatural">
+    Supernatural
+    </label>
+    <label class="selection-label">
+    <input type="checkbox" name="origins" value="Scientific">
+    Scientific
+    </label>
+    </div>
+    <button type="button" class="prev-btn">Previous</button>
+    <button type="button" id="next-btn-8" class="next-btn">Next</button>
+    </div>
+    </div>
+    
+    <!-- Step 9: Acquisition Method -->
+    <div class="form-step" data-step="9">
+    <div>
+    <h3>How Did Your Hero Acquire Their Powers?</h3>
+    <div class="form-group">
+    <label class="selection-label">
+    <input type="checkbox" name="acquisitionMethod" value="Innate">
+    <span>Innate</span>
+    </label>
+    <label class="selection-label">
+    <input type="checkbox" name="acquisitionMethod" value="Accidental">
+    <span>Accidental</span>
+    </label>
+    <label class="selection-label">
+    <input type="checkbox" name="acquisitionMethod" value="Born with it">
+    <span>Born with it</span>
+    </label>
+    <label class="selection-label">
+    <input type="checkbox" name="acquisitionMethod" value="Chosen">
+    <span>Chosen</span>
+    </label>
+    <label class="selection-label">
+    <input type="checkbox" name="acquisitionMethod" value="Intentionally (gained powers through deliberate action or decision)">
+    <span>Intentionally (gained powers through deliberate action or decision)</span>
+    </label>
+    </div>
+    <button type="button" class="prev-btn">Previous</button>
+    <button type="button" id="next-btn-9" class="next-btn">Next</button>
+    </div>
+    </div>
+    
+    <!-- Step 10: Result -->
+    <div class="form-step" data-step="10">
+    <div class="result-card">
+    <h3>Your Superhero Profile</h3>
+    <div id="resultContent"></div>
+    <button type="button" class="restart-btn">Create Another Hero</button>
+    </div>
+    </div>
+    </form>
+    </div>
+    </main>
+    
+    <footer>
+    <div class="container">
+    <p>© 2023 Hero-Gen. Unleash your inner superhero!</p>
+    </div>
+    </footer>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('heroForm');
+    const formSteps = document.querySelectorAll('.form-step');
+    const progress = document.getElementById('progress');
+    let currentStep = 0;
+    const totalSteps = formSteps.length - 1; // Excluding result step
+    const formData = {};
+    
+    formSteps[currentStep].classList.add('active');
+    updateProgress();
+    
+    document.querySelectorAll('.next-btn').forEach(button => {
+    button.addEventListener('click', () => {
+    if (!validateStep(currentStep)) return;
+    saveStepData(currentStep);
+    gotoStep(currentStep + 1);
+    });
+    });
+    
+    document.querySelectorAll('.prev-btn').forEach(button => {
+    button.addEventListener('click', () => {
+    gotoStep(currentStep - 1);
+    });
+    });
+    
+    // Restart Quiz
+    document.querySelector('.restart-btn')?.addEventListener('click', () => {
+    location.reload();
+    });
+    
+    // Update scale values
+    document.getElementById('powerLevel').addEventListener('input', function() {
+    document.getElementById('powerValue').textContent = this.value;
+    });
+    
+    document.getElementById('gadgetMastery').addEventListener('input', function() {
+    document.getElementById('gadgetValue').textContent = this.value;
+    });
+    
+    // Add event listeners to Origins checkboxes for auto-progress
+    document.querySelectorAll('input[name="origins"]').forEach(input => {
+    input.addEventListener('change', () => {
+    const selected = Array.from(document.querySelectorAll('input[name="origins"]:checked')).length;
+    if (selected > 0) {
+    saveStepData(currentStep);
+    gotoStep(currentStep + 1);
+    }
+    });
+    });
+    
+    function updateProgress() {
+    const progressPercent = ((currentStep) / totalSteps) * 100;
+    progress.style.width = `${progressPercent}%`;
+    }
+    
+    function validateStep(step) {
+    const stepElement = formSteps[step];
+    const inputs = stepElement.querySelectorAll('input, select, textarea');
+    for (let input of inputs) {
+    if (input.hasAttribute('required') && !input.value.trim()) {
+    alert('Please fill out all required fields.');
+    return false;
+    }
+    if (input.type === 'radio') {
+    const name = input.name;
+    if (!stepElement.querySelector(`input[name="${name}"]:checked`)) {
+    alert('Please select an option.');
+    return false;
+    }
+    }
+    if (input.type === 'checkbox') {
+    const name = input.name;
+    if (!stepElement.querySelector(`input[name="${name}"]:checked`)) {
+    alert('Please select at least one option.');
+    return false;
+    }
+    }
+    }
+    return true;
+    }
+    
+    function saveStepData(step) {
+    const stepElement = formSteps[step];
+    const inputs = stepElement.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+    if (input.type === 'checkbox') {
+    if (!formData[input.name]) {
+    formData[input.name] = [];
+    }
+    if (input.checked) {
+    formData[input.name].push(input.value);
+    }
+    } else if (input.type === 'radio') {
+    if (input.checked) {
+    formData[input.name] = input.value;
+    }
+    } else {
+    formData[input.name] = input.value;
+    }
+    });
+    }
+    
+    function gotoStep(step) {
+    formSteps[currentStep].classList.remove('active');
+    currentStep = step;
+    if (currentStep < totalSteps) {
+    formSteps[currentStep].classList.add('active');
+    updateProgress();
+    } else {
+    generateResult();
+    formSteps[currentStep].classList.add('active');
+    progress.style.width = `100%`;
+    }
+    }
+    
+    function generateResult() {
+    const resultContent = document.getElementById('resultContent');
+    const origins = formData.origins ? formData.origins.join(', ') : 'N/A';
+    const acquisitionMethod = formData.acquisitionMethod ? formData.acquisitionMethod.join(', ') : 'N/A';
+    
+    resultContent.innerHTML = `
+    <p><strong>Hero Name:</strong> ${formData.heroName}</p>
+    <p><strong>Alias:</strong> ${formData.alias}</p>
+    <p><strong>General Appearance:</strong> ${formData.generalAppearance}</p>
+    <p><strong>Color Theme:</strong> ${formData.colorTheme}</p>
+    <p><strong>Material:</strong> ${formData.material}</p>
+    <p><strong>Power Level:</strong> ${formData.powerLevel} / 5</p>
+    <p><strong>Gadget Mastery:</strong> ${formData.gadgetMastery} / 5</p>
+    <p><strong>Origins:</strong> ${origins}</p>
+    <p><strong>Acquisition Method:</strong> ${acquisitionMethod}</p>
+    `;
+    }
+    });
+    </script>
+    
+    <script>
+    if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/service-worker.js')
+    .then(function(registration) {
+    console.log('ServiceWorker registration successful with scope:', registration.scope);
+    }, function(err) {
+    console.log('ServiceWorker registration failed:', err);
+    });
+    });
+    }
+    </script>
+    
+    </body></html>
